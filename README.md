@@ -99,6 +99,15 @@ ClangSharpPInvokeGenerator `
     --methodClassName FFI_NativeMethodsHandler <# class name where to put methods #> `
     --libraryPath delta_kernel_ffi <# name of the DLL where code will be referenced from via PInvoke #> `
     -o .\GenerateDeltaLakeKernelRustInterop\DeltaLake\Kernel\Rust\Ffi <# output folder #>
+
+# Post-processing script to remove Mangled entrpoints. I couldn't find a setting in ClangSharpPInvokeGenerator
+# that does this.
+#
+Get-ChildItem .\GenerateDeltaLakeKernelRustInterop\DeltaLake\Kernel\Rust\Ffi -Filter FFI_NativeMethodsHandler.cs -Recurse | ForEach-Object {
+    $content = Get-Content $_.FullName -Raw
+    $updatedContent = $content -replace ', EntryPoint = "[^"]+"', ''
+    Set-Content -Path $_.FullName -Value $updatedContent
+}
 dotnet build .\GenerateDeltaLakeKernelRustInterop\GenerateDeltaLakeKernelRustInterop.csproj
 
 #   Determining projects to restore...
