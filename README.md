@@ -14,7 +14,7 @@ This is fine, the build machine, if needed, can just be Windows type.
 ```powershell
 # Create a dummy project
 #
-dotnet new console -o GenerateDeltaKernelRustInterop -n GenerateDeltaKernelRustInterop
+dotnet new console -o GenerateDeltaLakeKernelRustInterop -n GenerateDeltaLakeKernelRustInterop
 
 # Search the CLang compiler
 #
@@ -81,25 +81,25 @@ ClangSharpPInvokeGenerator -c help
 
 # Clean and fire generation
 #
-rm -Recurse GenerateDeltaKernelRustInterop\Delta
+rm -Recurse GenerateDeltaLakeKernelRustInterop\DeltaLake
 ClangSharpPInvokeGenerator `
     -c multi-file generate-file-scoped-namespaces generate-helper-types generate-disable-runtime-marshalling <# configuration for the generator#> `
     --file ".\Delta-Kernel\delta_kernel_ffi.h" <# file we want to generate bindings for #>  `
     --include-directory "C:\Program Files\LLVM\lib\clang\18\include" <# include clang headers from LLVM installation earlier #> `
-    -n "Delta.Kernel.Rust.Ffi" <# namespace of the bindings #> `
-    --methodClassName DeltaKernelFfiSource <# class name where to put methods #> `
+    -n "DeltaLake.Kernel.Rust.Ffi" <# namespace of the bindings #> `
+    --methodClassName DeltaLakeKernelFfiSource <# class name where to put methods #> `
     --libraryPath delta_kernel_ffi <# name of the DLL where code will be referenced from via PInvoke #> `
-    -o .\GenerateDeltaKernelRustInterop\Delta\Kernel\Rust\Ffi <# output folder #> `
+    -o .\GenerateDeltaLakeKernelRustInterop\DeltaLake\Kernel\Rust\Ffi <# output folder #> `
 
 # Processing '.\Delta-Kernel\delta_kernel_ffi.h'
 
 # Test compiling
 #
-dotnet build .\GenerateDeltaKernelRustInterop\GenerateDeltaKernelRustInterop.csproj
+dotnet build .\GenerateDeltaLakeKernelRustInterop\GenerateDeltaLakeKernelRustInterop.csproj
 
 #   Determining projects to restore...
 #   All projects are up-to-date for restore.
-#   GenerateDeltaKernelRustInterop -> E:\git\delta-header-to-csharp\GenerateDeltaKernelRustInterop\bin\Debug\net8.0\GenerateDeltaKernelRustInterop.dll
+#   GenerateDeltaLakeKernelRustInterop -> E:\git\delta-header-to-csharp\GenerateDeltaLakeKernelRustInterop\bin\Debug\net8.0\GenerateDeltaLakeKernelRustInterop.dll
 
 # Build succeeded.
 #     0 Warning(s)
