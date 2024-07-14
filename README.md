@@ -96,7 +96,7 @@ ClangSharpPInvokeGenerator `
     --file ".\Delta-Kernel\delta_kernel_ffi.h" <# file we want to generate bindings for #>  `
     --include-directory "C:\Program Files\LLVM\lib\clang\18\include" <# include clang headers from LLVM installation earlier #> `
     -n "DeltaLake.Kernel.Rust.Ffi" <# namespace of the bindings #> `
-    --methodClassName FfiNativeMethodsHandler <# class name where to put methods #> `
+    --methodClassName FFINativeMethodsHandler <# class name where to put methods #> `
     --libraryPath delta_kernel_ffi <# name of the DLL where code will be referenced from via PInvoke #> `
     -o .\GenerateDeltaLakeKernelRustInterop\DeltaLake\Kernel\Rust\Ffi <# output folder #>
 dotnet build .\GenerateDeltaLakeKernelRustInterop\GenerateDeltaLakeKernelRustInterop.csproj
