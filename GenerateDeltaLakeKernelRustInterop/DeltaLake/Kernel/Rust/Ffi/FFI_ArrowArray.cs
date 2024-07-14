@@ -1,3 +1,5 @@
+using System;
+
 namespace DeltaLake.Kernel.Rust.Ffi;
 
 public unsafe partial struct FFI_ArrowArray
@@ -27,7 +29,7 @@ public unsafe partial struct FFI_ArrowArray
     public FFI_ArrowArray* dictionary;
 
     [NativeTypeName("void (*)(struct FFI_ArrowArray *)")]
-    public delegate* unmanaged[Cdecl]<FFI_ArrowArray*, void> release;
+    public IntPtr release;
 
     public void* private_data;
 }
