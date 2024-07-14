@@ -4,11 +4,3 @@
 // Licensed under the Apache license. See LICENSE file in the project root for full license information.
 // </copyright>
 // -----------------------------------------------------------------------------
-
-namespace DeltaLake.Kernel.Rust.Ffi;
-
-public enum ExternResultHandleSharedSnapshot_Tag
-{
-    OkHandleSharedSnapshot,
-    ErrHandleSharedSnapshot,
-}
