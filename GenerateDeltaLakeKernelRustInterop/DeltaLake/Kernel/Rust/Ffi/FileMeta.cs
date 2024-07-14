@@ -9,5 +9,5 @@ public partial struct FileMeta
     public long last_modified;
 
     [NativeTypeName("uintptr_t")]
-    public nuint size;
+    public ulong size;
 }

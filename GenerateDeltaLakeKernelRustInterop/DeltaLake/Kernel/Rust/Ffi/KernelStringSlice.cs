@@ -6,5 +6,5 @@ public unsafe partial struct KernelStringSlice
     public sbyte* ptr;
 
     [NativeTypeName("uintptr_t")]
-    public nuint len;
+    public ulong len;
 }

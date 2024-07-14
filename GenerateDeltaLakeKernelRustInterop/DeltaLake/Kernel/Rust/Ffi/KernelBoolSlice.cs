@@ -5,5 +5,5 @@ public unsafe partial struct KernelBoolSlice
     public bool* ptr;
 
     [NativeTypeName("uintptr_t")]
-    public nuint len;
+    public ulong len;
 }

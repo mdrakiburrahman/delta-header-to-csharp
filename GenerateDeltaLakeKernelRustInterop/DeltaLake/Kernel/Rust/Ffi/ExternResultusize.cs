@@ -23,7 +23,7 @@ public unsafe partial struct ExternResultusize
         public partial struct _Anonymous1_e__Struct
         {
             [NativeTypeName("uintptr_t")]
-            public nuint ok;
+            public ulong ok;
         }
 
         public unsafe partial struct _Anonymous2_e__Struct

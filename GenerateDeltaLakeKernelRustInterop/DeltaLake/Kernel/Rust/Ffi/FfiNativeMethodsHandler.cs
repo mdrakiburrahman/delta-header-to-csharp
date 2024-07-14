@@ -56,31 +56,31 @@ public static unsafe partial class FfiNativeMethodsHandler
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_schema@@YA_KPEAUSharedSnapshot@@PEAUEngineSchemaVisitor@@@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_schema([NativeTypeName("HandleSharedSnapshot")] SharedSnapshot* snapshot, [NativeTypeName("struct EngineSchemaVisitor *")] EngineSchemaVisitor* visitor);
+    public static extern ulong visit_schema([NativeTypeName("HandleSharedSnapshot")] SharedSnapshot* snapshot, [NativeTypeName("struct EngineSchemaVisitor *")] EngineSchemaVisitor* visitor);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_and@@YA_KPEAUKernelExpressionVisitorState@@PEAUEngineIterator@@@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_and([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("struct EngineIterator *")] EngineIterator* children);
+    public static extern ulong visit_expression_and([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("struct EngineIterator *")] EngineIterator* children);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_lt@@YA_KPEAUKernelExpressionVisitorState@@_K1@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_lt([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] nuint a, [NativeTypeName("uintptr_t")] nuint b);
+    public static extern ulong visit_expression_lt([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] ulong a, [NativeTypeName("uintptr_t")] ulong b);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_le@@YA_KPEAUKernelExpressionVisitorState@@_K1@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_le([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] nuint a, [NativeTypeName("uintptr_t")] nuint b);
+    public static extern ulong visit_expression_le([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] ulong a, [NativeTypeName("uintptr_t")] ulong b);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_gt@@YA_KPEAUKernelExpressionVisitorState@@_K1@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_gt([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] nuint a, [NativeTypeName("uintptr_t")] nuint b);
+    public static extern ulong visit_expression_gt([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] ulong a, [NativeTypeName("uintptr_t")] ulong b);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_ge@@YA_KPEAUKernelExpressionVisitorState@@_K1@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_ge([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] nuint a, [NativeTypeName("uintptr_t")] nuint b);
+    public static extern ulong visit_expression_ge([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] ulong a, [NativeTypeName("uintptr_t")] ulong b);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_eq@@YA_KPEAUKernelExpressionVisitorState@@_K1@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_eq([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] nuint a, [NativeTypeName("uintptr_t")] nuint b);
+    public static extern ulong visit_expression_eq([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] ulong a, [NativeTypeName("uintptr_t")] ulong b);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_column@@YA?AUExternResultusize@@PEAUKernelExpressionVisitorState@@UKernelStringSlice@@P6APEAUEngineError@@W4KernelError@@1@Z@Z", ExactSpelling = true)]
     [return: NativeTypeName("struct ExternResultusize")]
@@ -88,11 +88,11 @@ public static unsafe partial class FfiNativeMethodsHandler
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_not@@YA_KPEAUKernelExpressionVisitorState@@_K@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_not([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] nuint inner_expr);
+    public static extern ulong visit_expression_not([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] ulong inner_expr);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_is_null@@YA_KPEAUKernelExpressionVisitorState@@_K@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_is_null([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] nuint inner_expr);
+    public static extern ulong visit_expression_is_null([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("uintptr_t")] ulong inner_expr);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_literal_string@@YA?AUExternResultusize@@PEAUKernelExpressionVisitorState@@UKernelStringSlice@@P6APEAUEngineError@@W4KernelError@@1@Z@Z", ExactSpelling = true)]
     [return: NativeTypeName("struct ExternResultusize")]
@@ -100,31 +100,31 @@ public static unsafe partial class FfiNativeMethodsHandler
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_literal_int@@YA_KPEAUKernelExpressionVisitorState@@H@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_literal_int([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("int32_t")] int value);
+    public static extern ulong visit_expression_literal_int([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("int32_t")] int value);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_literal_long@@YA_KPEAUKernelExpressionVisitorState@@_J@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_literal_long([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("int64_t")] long value);
+    public static extern ulong visit_expression_literal_long([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("int64_t")] long value);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_literal_short@@YA_KPEAUKernelExpressionVisitorState@@F@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_literal_short([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("int16_t")] short value);
+    public static extern ulong visit_expression_literal_short([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("int16_t")] short value);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_literal_byte@@YA_KPEAUKernelExpressionVisitorState@@C@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_literal_byte([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("int8_t")] sbyte value);
+    public static extern ulong visit_expression_literal_byte([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, [NativeTypeName("int8_t")] sbyte value);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_literal_float@@YA_KPEAUKernelExpressionVisitorState@@M@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_literal_float([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, float value);
+    public static extern ulong visit_expression_literal_float([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, float value);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_literal_double@@YA_KPEAUKernelExpressionVisitorState@@N@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_literal_double([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, double value);
+    public static extern ulong visit_expression_literal_double([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, double value);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?visit_expression_literal_bool@@YA_KPEAUKernelExpressionVisitorState@@_N@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint visit_expression_literal_bool([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, bool value);
+    public static extern ulong visit_expression_literal_bool([NativeTypeName("struct KernelExpressionVisitorState *")] KernelExpressionVisitorState* state, bool value);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?read_result_next@@YA?AUExternResultbool@@PEAUExclusiveFileReadResultIterator@@PEAXP6AX1PEAUExclusiveEngineData@@@Z@Z", ExactSpelling = true)]
     [return: NativeTypeName("struct ExternResultbool")]
@@ -139,7 +139,7 @@ public static unsafe partial class FfiNativeMethodsHandler
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?engine_data_length@@YA_KPEAPEAUExclusiveEngineData@@@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint engine_data_length([NativeTypeName("HandleExclusiveEngineData *")] ExclusiveEngineData** data);
+    public static extern ulong engine_data_length([NativeTypeName("HandleExclusiveEngineData *")] ExclusiveEngineData** data);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?get_raw_engine_data@@YAPEAXPEAUExclusiveEngineData@@@Z", ExactSpelling = true)]
     public static extern void* get_raw_engine_data([NativeTypeName("HandleExclusiveEngineData")] ExclusiveEngineData* data);
@@ -168,7 +168,7 @@ public static unsafe partial class FfiNativeMethodsHandler
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?get_partition_column_count@@YA_KPEAUSharedGlobalScanState@@@Z", ExactSpelling = true)]
     [return: NativeTypeName("uintptr_t")]
-    public static extern nuint get_partition_column_count([NativeTypeName("HandleSharedGlobalScanState")] SharedGlobalScanState* state);
+    public static extern ulong get_partition_column_count([NativeTypeName("HandleSharedGlobalScanState")] SharedGlobalScanState* state);
 
     [DllImport("delta_kernel_ffi", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?get_partition_columns@@YAPEAUStringSliceIterator@@PEAUSharedGlobalScanState@@@Z", ExactSpelling = true)]
     [return: NativeTypeName("HandleStringSliceIterator")]
