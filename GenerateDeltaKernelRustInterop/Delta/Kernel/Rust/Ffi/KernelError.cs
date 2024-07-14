@@ -1,0 +1,30 @@
+namespace Delta.Kernel.Rust.Ffi;
+
+public enum KernelError
+{
+    UnknownError,
+    FFIError,
+    EngineDataTypeError,
+    ExtractError,
+    GenericError,
+    IOErrorError,
+    FileNotFoundError,
+    MissingColumnError,
+    UnexpectedColumnTypeError,
+    MissingDataError,
+    MissingVersionError,
+    DeletionVectorError,
+    InvalidUrlError,
+    MalformedJsonError,
+    MissingMetadataError,
+    MissingProtocolError,
+    MissingMetadataAndProtocolError,
+    ParseError,
+    JoinFailureError,
+    Utf8Error,
+    ParseIntError,
+    InvalidColumnMappingModeError,
+    InvalidTableLocationError,
+    InvalidDecimalError,
+    InvalidStructDataError,
+}
