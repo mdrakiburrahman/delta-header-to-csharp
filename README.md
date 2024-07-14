@@ -79,22 +79,25 @@ ClangSharpPInvokeGenerator -c help
 #    This workaround is fine, although I'm not sure why these build flags are there in the first place.
 #
 
-# Clean and fire generation
+# Clean, fire generation, test build
 #
 rm -Recurse GenerateDeltaLakeKernelRustInterop\DeltaLake, GenerateDeltaLakeKernelRustInterop\bin, GenerateDeltaLakeKernelRustInterop\obj
 ClangSharpPInvokeGenerator `
-    -c multi-file generate-file-scoped-namespaces generate-helper-types generate-disable-runtime-marshalling exclude-fnptr-codegen exclude-anonymous-field-helpers exclude-com-proxies exclude-default-remappings <# configuration for the generator#> `
+    -c <# configuration for the generator#> `
+    multi-file `
+    generate-file-scoped-namespaces `
+    generate-helper-types `
+    generate-disable-runtime-marshalling `
+    exclude-fnptr-codegen `
+    exclude-anonymous-field-helpers `
+    exclude-com-proxies exclude-default-remappings `
+    generate-cpp-attributes `
     --file ".\Delta-Kernel\delta_kernel_ffi.h" <# file we want to generate bindings for #>  `
     --include-directory "C:\Program Files\LLVM\lib\clang\18\include" <# include clang headers from LLVM installation earlier #> `
     -n "DeltaLake.Kernel.Rust.Ffi" <# namespace of the bindings #> `
     --methodClassName FfiNativeMethodsHandler <# class name where to put methods #> `
     --libraryPath delta_kernel_ffi <# name of the DLL where code will be referenced from via PInvoke #> `
     -o .\GenerateDeltaLakeKernelRustInterop\DeltaLake\Kernel\Rust\Ffi <# output folder #>
-
-# Processing '.\Delta-Kernel\delta_kernel_ffi.h'
-
-# Test compiling
-#
 dotnet build .\GenerateDeltaLakeKernelRustInterop\GenerateDeltaLakeKernelRustInterop.csproj
 
 #   Determining projects to restore...
