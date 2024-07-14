@@ -81,7 +81,7 @@ ClangSharpPInvokeGenerator -c help
 
 # Clean and fire generation
 #
-rm -Recurse GenerateDeltaLakeKernelRustInterop\DeltaLake
+rm -Recurse GenerateDeltaLakeKernelRustInterop\DeltaLake, GenerateDeltaLakeKernelRustInterop\bin, GenerateDeltaLakeKernelRustInterop\obj
 ClangSharpPInvokeGenerator `
     -c multi-file generate-file-scoped-namespaces generate-helper-types generate-disable-runtime-marshalling <# configuration for the generator#> `
     --file ".\Delta-Kernel\delta_kernel_ffi.h" <# file we want to generate bindings for #>  `
@@ -89,7 +89,7 @@ ClangSharpPInvokeGenerator `
     -n "DeltaLake.Kernel.Rust.Ffi" <# namespace of the bindings #> `
     --methodClassName DeltaLakeKernelFfiSource <# class name where to put methods #> `
     --libraryPath delta_kernel_ffi <# name of the DLL where code will be referenced from via PInvoke #> `
-    -o .\GenerateDeltaLakeKernelRustInterop\DeltaLake\Kernel\Rust\Ffi <# output folder #> `
+    -o .\GenerateDeltaLakeKernelRustInterop\DeltaLake\Kernel\Rust\Ffi <# output folder #>
 
 # Processing '.\Delta-Kernel\delta_kernel_ffi.h'
 
