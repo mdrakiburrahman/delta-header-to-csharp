@@ -83,7 +83,7 @@ ClangSharpPInvokeGenerator -c help
 #
 rm -Recurse GenerateDeltaLakeKernelRustInterop\DeltaLake, GenerateDeltaLakeKernelRustInterop\bin, GenerateDeltaLakeKernelRustInterop\obj
 ClangSharpPInvokeGenerator `
-    -c multi-file generate-file-scoped-namespaces generate-helper-types generate-disable-runtime-marshalling exclude-fnptr-codegen <# configuration for the generator#> `
+    -c multi-file generate-file-scoped-namespaces generate-helper-types generate-disable-runtime-marshalling exclude-fnptr-codegen exclude-anonymous-field-helpers exclude-com-proxies <# configuration for the generator#> `
     --file ".\Delta-Kernel\delta_kernel_ffi.h" <# file we want to generate bindings for #>  `
     --include-directory "C:\Program Files\LLVM\lib\clang\18\include" <# include clang headers from LLVM installation earlier #> `
     -n "DeltaLake.Kernel.Rust.Ffi" <# namespace of the bindings #> `

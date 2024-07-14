@@ -9,22 +9,6 @@ public unsafe partial struct ExternResultHandleSharedExternEngine
     [NativeTypeName("__AnonymousRecord_delta_kernel_ffi_L233_C3")]
     public _Anonymous_e__Union Anonymous;
 
-    public ref SharedExternEngine* ok
-    {
-        get
-        {
-            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.Anonymous1.ok;
-        }
-    }
-
-    public ref EngineError* err
-    {
-        get
-        {
-            return ref MemoryMarshal.GetReference(MemoryMarshal.CreateSpan(ref this, 1)).Anonymous.Anonymous2.err;
-        }
-    }
-
     [StructLayout(LayoutKind.Explicit)]
     public unsafe partial struct _Anonymous_e__Union
     {
