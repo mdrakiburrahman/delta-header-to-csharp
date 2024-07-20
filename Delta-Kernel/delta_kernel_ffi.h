@@ -3,19 +3,30 @@
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdint.h>
+// #include <stdlib.h> // Not actually used, commenting out since it`s not available in my Windows Machine
 
 typedef enum KernelError {
   UnknownError,
   FFIError,
+// #if (defined(DEFINE_DEFAULT_ENGINE) || defined(DEFINE_SYNC_ENGINE)) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
   ArrowError,
+// #endif
   EngineDataTypeError,
   ExtractError,
   GenericError,
   IOErrorError,
+// #if (defined(DEFINE_DEFAULT_ENGINE) || defined(DEFINE_SYNC_ENGINE)) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
   ParquetError,
+// #endif
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
   ObjectStoreError,
+// #endif
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
   ObjectStorePathError,
+// #endif
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
   ReqwestError,
+// #endif
   FileNotFoundError,
   MissingColumnError,
   UnexpectedColumnTypeError,
@@ -44,10 +55,12 @@ typedef struct CStringMap CStringMap;
  */
 typedef struct DvInfo DvInfo;
 
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
 /**
  * A builder that allows setting options on the `Engine` before actually building it
  */
 typedef struct EngineBuilder EngineBuilder;
+// #endif
 
 /**
  * an opaque struct that encapsulates data read by an engine. this handle can be passed back into
@@ -667,6 +680,7 @@ typedef struct FFI_ArrowSchema {
   void *private_data;
 } FFI_ArrowSchema;
 
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
 /**
  * Struct to allow binding to the arrow [C Data
  * Interface](https://arrow.apache.org/docs/format/CDataInterface.html). This includes the data and
@@ -676,6 +690,7 @@ typedef struct ArrowFFIData {
   struct FFI_ArrowArray array;
   struct FFI_ArrowSchema schema;
 } ArrowFFIData;
+// #endif
 
 /**
  * Semantics: Kernel will always immediately return the leaked engine error to the engine (if it
@@ -922,6 +937,7 @@ void free_bool_slice(struct KernelBoolSlice slice);
  */
 void free_engine_data(HandleExclusiveEngineData engine_data);
 
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
 /**
  * Get a "builder" that can be used to construct an engine. The function
  * [`set_builder_option`] can be used to set options on the builder prior to constructing the
@@ -932,6 +948,9 @@ void free_engine_data(HandleExclusiveEngineData engine_data);
  */
 struct ExternResultEngineBuilder get_engine_builder(struct KernelStringSlice path,
                                                     AllocateErrorFn allocate_error);
+// #endif
+
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
 /**
  * Set an option on the builder
  *
@@ -942,6 +961,9 @@ struct ExternResultEngineBuilder get_engine_builder(struct KernelStringSlice pat
 void set_builder_option(struct EngineBuilder *builder,
                         struct KernelStringSlice key,
                         struct KernelStringSlice value);
+// #endif
+
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
 /**
  * Consume the builder and return a `default` engine. After calling, the passed pointer is _no
  * longer valid_.
@@ -952,7 +974,9 @@ void set_builder_option(struct EngineBuilder *builder,
  * Caller is responsible to pass a valid EngineBuilder pointer, and to not use it again afterwards
  */
 struct ExternResultHandleSharedExternEngine builder_build(struct EngineBuilder *builder);
+// #endif
 
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
 /**
  * # Safety
  *
@@ -960,13 +984,16 @@ struct ExternResultHandleSharedExternEngine builder_build(struct EngineBuilder *
  */
 struct ExternResultHandleSharedExternEngine get_default_engine(struct KernelStringSlice path,
                                                                AllocateErrorFn allocate_error);
+// #endif
 
+// #if defined(DEFINE_SYNC_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
 /**
  * # Safety
  *
  * Caller is responsible for passing a valid path pointer.
  */
 struct ExternResultHandleSharedExternEngine get_sync_engine(AllocateErrorFn allocate_error);
+// #endif
 
 /**
  * # Safety
@@ -1143,6 +1170,7 @@ uintptr_t engine_data_length(HandleExclusiveEngineData *data);
  */
 void *get_raw_engine_data(HandleExclusiveEngineData data);
 
+// #if defined(DEFINE_DEFAULT_ENGINE) // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently
 /**
  * Get an [`ArrowFFIData`] to allow binding to the arrow [C Data
  * Interface](https://arrow.apache.org/docs/format/CDataInterface.html). This includes the data and
@@ -1154,6 +1182,7 @@ void *get_raw_engine_data(HandleExclusiveEngineData data);
  */
 struct ExternResultArrowFFIData get_raw_arrow_data(HandleExclusiveEngineData data,
                                                    HandleSharedExternEngine engine);
+// #endif
 
 /**
  * Drops a scan.
@@ -1287,3 +1316,7 @@ void visit_scan_data(HandleExclusiveEngineData data,
                      struct KernelBoolSlice selection_vec,
                      NullableCvoid engine_context,
                      CScanCallback callback);
+
+
+
+
