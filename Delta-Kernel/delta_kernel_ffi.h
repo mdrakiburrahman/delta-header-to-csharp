@@ -1316,7 +1316,3 @@ void visit_scan_data(HandleExclusiveEngineData data,
                      struct KernelBoolSlice selection_vec,
                      NullableCvoid engine_context,
                      CScanCallback callback);
-
-
-
-

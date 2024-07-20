@@ -83,6 +83,7 @@ Get-ChildItem .\Delta-Kernel -Filter delta_kernel_ffi.h -Recurse | ForEach-Objec
     $updatedContent = $content -replace '(?m)^(#include <stdlib.h>)$', '// $1 // Not actually used, commenting out since it`s not available in my Windows Machine' `
                                -replace '(?m)^(#if .+)$', '// $1 // Build feature flags means C# won`t have the class, for now we blindly comment out, in future, we can tackle more intelligently' `
                                -replace '(?m)^(#endif)$', '// $1'
+    $updatedContent = $updatedContent.TrimEnd("`r`n")
     Set-Content -Path $_.FullName -Value $updatedContent
 }
 
